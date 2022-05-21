@@ -5,7 +5,7 @@
 - Frontend service (Flask)
 - Backend service (Flask)
 
-❗ Frontend and Backend services are instrumented to send traces to OTel collector via Python auto-instrumentation library. Please check Dockerfile to see exact command used for instrumentation.
+❗ Frontend and Backend services are instrumented to send traces to OTel collector via Python opentelemetry-instrument library (auto-instrumentation). Please check Dockerfile to see exact command used for instrumentation.
 
 - MySQL database
 - OpenTelemetry collector
