@@ -1,4 +1,4 @@
-<H2>This is a simple Flask App that allows you test Open Telemetry capabilites. </H2>
+<H2>This is a simple Flask application that allows you test Open Telemetry capabilites. </H2>
 
 <B>This projects consits of following components:</b>
   
