@@ -57,4 +57,5 @@
 <B>6. Deploying Zipkin and exposing service.</B>
 
 `kubectl create -f ./k8s/zipkin.yaml`
+  
 `minikube service zipkin-svc --url`
