@@ -17,7 +17,7 @@ data:
         timeout: 30s
         send_batch_size: 90
       # This part configures how the opentelemetry collector will process the data before sending it to AppDynamics SaaS.
-      # resource:
+      #  resource:
       #   attributes:
       #   - key: appdynamics.controller.account
       #     action: upsert
@@ -51,7 +51,9 @@ data:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: [batch, resource]
+          processors: [batch]
+          #if appd backend used, please comment above and uncomment below
+          #processors: [batch, resource]
           exporters: [logging, jaeger, zipkin]
           #if appd backend used, please comment above and uncomment below
           #exporters: [logging, otlphttp, jaeger, zipkin]

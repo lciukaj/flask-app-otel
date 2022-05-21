@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: flask-app-otel-frontend
-        image: lciukaj/flask-app-otel-frontend
+        image: flask-app-otel-frontend
+        #if container images stored in DockerHub or other repo, please comment below
         imagePullPolicy: Never
 ---
 apiVersion: v1
@@ -51,7 +52,8 @@ spec:
     spec:
       containers:
       - name: flask-app-otel-backend
-        image: lciukaj/flask-app-otel-backend
+        image: flask-app-otel-backend
+        #if container images stored in DockerHub or other repo, please comment below
         imagePullPolicy: Never
         env:
         - name: MYSQL_USERNAME
