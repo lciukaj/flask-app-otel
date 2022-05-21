@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Flask Application!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <section class="hero is-warning is-fullheight">
+        <div class="hero-head">
+          <p class="title has-text-centered">
+            <BR><BR>This is a simple Flask App that allows you test Open Telemetry capabilites!<BR><BR>
+          </p>
+        <!-- </div>
+        <div class="hero-body"> -->
+            <div class="container">
+                <div class="box is-white is-small">
+                        <label class="label is-large">Please edit data by using a form below:</label>
+
+                        <form method="POST" action="/update">
+                        <div class="field">
+                          <label class="label">City</label>
+                          <div class="control">
+                            <input class="input" type="text" value="{{ city['city'] }}" name="city">
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Country</label>
+                          <div class="control">
+                            <input class="input" type="text" value="{{ city['country'] }}" name="country">
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Date of visit</label>
+                          <div class="control">
+                            <input class="input" type="date" value="{{ city['visit_date'] }}" name="visit_date">
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">How did you get there?</label>
+                          <div class="control">
+                            <div class="select" value="{{ city['transport'] }}">
+                              <select name="transport">
+                                {% if city['transport'] =='Plane' %}
+                                <option selected>Plane</option>
+                                <option>Train</option>
+                                <option>Car</option>    
+                                <option>Other</option>
+                                {% endif %}
+                                {% if city['transport'] =='Train' %}
+                                <option>Plane</option>
+                                <option selected>Train</option>
+                                <option>Car</option>    
+                                <option>Other</option>
+                                {% endif %}
+                                {% if city['transport'] =='Car' %}
+                                <option>Plane</option>
+                                <option>Train</option>
+                                <option selected>Car</option>    
+                                <option>Other</option>
+                                {% endif %}
+                                {% if city['transport'] =='Other' %}
+                                <option>Plane</option>
+                                <option>Train</option>
+                                <option>Car</option>    
+                                <option selected>Other</option>
+                                {% endif %}                                                                                                                                                                           
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <BR><BR>                        
+                        <div class="field is-grouped">
+                          <div class="control">
+                            <button class="button is-primary is-link" name="id" value="{{ city['id'] }}">Submit</button>
+                          </div>
+                          </form>
+                          <form method="GET" action="/">
+                          <div class="control">
+                            <button class="button is-danger is-link ">Cancel</button>
+                          </div>
+                          </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-foot"></div>         
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+Flask;
+flask_sqlalchemy;
+sqlalchemy;
+pymysql;
+requests;
+opentelemetry-api;
+opentelemetry-distro;
+opentelemetry-exporter-otlp;
+opentelemetry-exporter-otlp-proto-grpc;
+opentelemetry-exporter-otlp-proto-http;
+opentelemetry-instrumentation;
+opentelemetry-proto;
+opentelemetry-sdk;
+cryptography;

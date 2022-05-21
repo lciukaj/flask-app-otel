@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flask-app-otel-frontend
+  name: flask-app-otel-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app-otel-frontend
+  template:
+    metadata:
+      labels:
+        app: flask-app-otel-frontend
+    spec:
+      containers:
+      - name: flask-app-otel-frontend
+        image: lciukaj/flask-app-otel-frontend
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-otel-frontend-svc
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+    nodePort: 32000
+  selector:
+    app: flask-app-otel-frontend
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flask-app-otel-backend
+  name: flask-app-otel-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app-otel-backend
+  template:
+    metadata:
+      labels:
+        app: flask-app-otel-backend
+    spec:
+      containers:
+      - name: flask-app-otel-backend
+        image: lciukaj/flask-app-otel-backend
+        imagePullPolicy: Never
+        env:
+        - name: MYSQL_USERNAME
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "password"
+        - name: MYSQL_HOST
+          value: "mysql-svc"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-otel-backend-svc
+spec:
+  ports:
+  - port: 5001
+    protocol: TCP
+    targetPort: 5001
+  selector:
+    app: flask-app-otel-backend
